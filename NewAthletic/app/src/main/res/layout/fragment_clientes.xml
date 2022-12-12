@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.view.clientes.ClientesFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="85dp"
+        android:background="#fff"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:clipToPadding="false"
+            android:orientation="vertical"
+            android:paddingBottom="30.0dip">
+
+
+<!--
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <EditText
+                    android:id="@+id/TxxBusqueda"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16.699982dip"
+                    android:layout_marginTop="10.0dip"
+                    android:layout_marginRight="16.699982dip"
+                    android:background="@drawable/rectangle_silver_border"
+                    android:fontFamily="@font/default_font_regular"
+                    android:hint="Nombres,Dni"
+                    android:inputType="text"
+                    android:padding="11.7dp"
+                    android:drawableTint="@color/bluecito"
+                    android:textSize="15.0sp"
+                    />
+                <ImageButton
+                    android:id="@+id/ic_delete"
+                    android:layout_marginLeft="-75dp"
+                    style="?android:buttonBarButtonStyle"
+                    android:paddingBottom="5dp"
+                    android:layout_marginTop="3dp"
+                    android:tint="@color/semi_gray"
+                    android:src="@drawable/ic_baseline_delete_forever_24"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+            -->
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/shopping_cart_list_view_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_margin="8dp"
+            android:paddingTop="100dp">
+
+            <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+                android:layout_width="wrap_content"
+                android:id="@+id/Refreshcars"
+                android:layout_height="wrap_content">
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/RecyclerCLientes"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:divider="@drawable/listview_divider"
+                    tools:listitem="@layout/item_clientes"
+                    android:dividerHeight="1dp" />
+            </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+
+        </LinearLayout>
+
+
+
+    </RelativeLayout>
+
+</FrameLayout>

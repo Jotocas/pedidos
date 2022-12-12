@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_inicio">
+
+    <fragment
+        android:id="@+id/nav_inicio"
+        android:name="com.torresj.newathletic.ui.view.inicio.InicioFragment"
+        android:label="@string/menu_inicio"
+        tools:layout="@layout/fragment_inicio" />
+
+    <fragment
+        android:id="@+id/nav_pedidos"
+        android:name="com.torresj.newathletic.ui.view.pedidos.PedidosListadoFragment"
+        android:label="@string/menu_pedidos"
+        tools:layout="@layout/fragment_pedidos_listado" />
+
+    <fragment
+        android:id="@+id/nav_productos"
+        android:name="com.torresj.newathletic.ui.view.productos.ProductosListadoFragment"
+        android:label="@string/menu_productos"
+        tools:layout="@layout/fragment_productos_listado" />
+</navigation>
