@@ -38,14 +38,17 @@ class LoginActivity : AppCompatActivity() {
             usuario.clave = "123"
 
             usuarioViewModel.ingresar(usuario)
-            bindObservers()
-           /* usuarioViewModel.usuario.observe(this, Observer {
+
+           usuarioViewModel.usuario.observe(this, Observer {
                 //binding.tvQuote.text = it.quote
                 //binding.tvAuthor.text = it.author
+               if (it != null) {
+                   tokenManager.saveToken(it.token!!)
+               }
                 startActivity(Intent(this@LoginActivity, MainActivity::class.java))
             })
 
-            */
+
 
 
         }
@@ -56,6 +59,8 @@ class LoginActivity : AppCompatActivity() {
         usuarioViewModel.usuario.observe(this, Observer {
           //  binding.progressBar.isVisible = false
             when (it) {
+
+
                 /* is NetworkResult.Success -> {
                    tokenManager.saveToken(it.data!!.token)
                    findNavController().navigate(R.id.action_loginFragment_to_mainFragment)

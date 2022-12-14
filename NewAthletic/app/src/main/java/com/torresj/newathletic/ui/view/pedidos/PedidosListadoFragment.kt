@@ -1,60 +1,62 @@
 package com.torresj.newathletic.ui.view.pedidos
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.Observer
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.torresj.newathletic.R
+import com.torresj.newathletic.data.model.DtoCoPedido
+import com.torresj.newathletic.data.model.FiltroCoPedido
+import com.torresj.newathletic.databinding.FragmentPedidosListadoBinding
+import com.torresj.newathletic.ui.adapter.pedido.PedidoAdapter
+import com.torresj.newathletic.ui.viewmodel.pedidos.PedidoListadoViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [PedidosListadoFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
+@AndroidEntryPoint
 class PedidosListadoFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+
+    private val pedidoListadoViewModel: PedidoListadoViewModel by viewModels()
+    val mAdapter : PedidoAdapter = PedidoAdapter()
+    //var listaPedidos = MutableLiveData<List<DtoCoPedido>>()
+  //  var pedidos: MutableList<DtoCoPedido>  = ArrayList()
+
+    private var _binding:FragmentPedidosListadoBinding? = null;
+    private val binding get() = _binding!!;
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
+
+        val filtro =FiltroCoPedido()
+        pedidoListadoViewModel.listarPedidos(filtro)
+
+        pedidoListadoViewModel.listaPedidos.observe(this, Observer {
+            this.initRecyclerView(it);
+        })
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_pedidos_listado, container, false)
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
+                              savedInstanceState: Bundle?): View? {
+        _binding = FragmentPedidosListadoBinding.inflate(inflater,container,false);
+        val view = binding.root;
+        return view;
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment PedidosListadoFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            PedidosListadoFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
+
+    fun initRecyclerView(pedidos: List<DtoCoPedido> ) {
+        binding?.RecyclerCLientes?.setHasFixedSize(true)
+        binding?.RecyclerCLientes?.layoutManager = LinearLayoutManager(context)
+        context?.let { mAdapter.PedidoAdapter(pedidos.toMutableList(), it) }
+        binding?.RecyclerCLientes?.adapter = mAdapter
+    }
+
 }

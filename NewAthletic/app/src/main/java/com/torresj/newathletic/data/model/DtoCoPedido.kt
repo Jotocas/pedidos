@@ -4,19 +4,19 @@ import java.math.BigDecimal
 import java.util.*
 
 data class DtoCoPedido(
-    val numeroDocumento: String
+    val numeroDocumento: String,
+    val estadoNombre: String? = null,
+    val clienteNombre: String? = null,
+    val montoTotal: BigDecimal? = null,
+    val fechaDocumento: Date? = null
 ){
     private val iv_action: String? = null
     private val companiaSocio: String? = null
     private val tipoDocumento: String? = null
     private val estado: String? = null
     private val eswebflag: String? = null
-    private val estadoNombre: String? = null
-    private val fechaDocumento: Date? = null
-    private val clienteNombre: String? = null
     private val monedaDocumento: String? = null
     private val sucursalNombre: String? = null
-    private val montoTotal: BigDecimal? = null
     private val clienteNumero: Int? = null
     private val comercialPedidoFechaRequerida: Date? = null
     private val fechaAprobacion: Date? = null

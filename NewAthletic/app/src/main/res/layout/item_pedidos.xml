@@ -40,7 +40,7 @@
                     android:layout_marginTop="10dp">
 
                     <TextView
-                        android:id="@+id/TxtTest"
+                        android:id="@+id/txtCliente"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="20dp"
@@ -82,7 +82,7 @@
                         android:id="@+id/linear"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_below="@+id/TxtTest"
+                        android:layout_below="@+id/txtCliente"
                         android:layout_marginTop="3dp"
                         android:orientation="vertical">
 
@@ -97,17 +97,17 @@
                             android:textStyle="bold" />
 
                         <TextView
-                            android:id="@+id/NroDco"
+                            android:id="@+id/txtNroDocumento"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="20dp"
-                            android:text="Direccion:"
+                            android:text="Documento:"
                             android:textColor="@color/colorLightGray"
                             android:textSize="12dp"
                             android:textStyle="bold" />
 
                         <TextView
-                            android:id="@+id/TxtFecha"
+                            android:id="@+id/txtFechaDocumento"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="20dp"
@@ -117,7 +117,7 @@
                             android:textStyle="bold" />
 
                         <TextView
-                            android:id="@+id/TxtMontoTotal"
+                            android:id="@+id/txtMontoTotal"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="20dp"

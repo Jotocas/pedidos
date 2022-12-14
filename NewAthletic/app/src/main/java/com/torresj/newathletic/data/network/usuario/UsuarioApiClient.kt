@@ -10,7 +10,7 @@ import retrofit2.http.Url
 
 interface UsuarioApiClient {
     @PUT()
-    suspend fun ingresar(@Body bean: SeguridadUsuarioLogin, @Url authUrl: String,): Response<SeguridadUsuarioLogin>
+    suspend fun ingresar(@Body bean: SeguridadUsuarioLogin, @Url authUrl: String): Response<SeguridadUsuarioLogin>
 
 
 }
