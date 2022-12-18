@@ -14,17 +14,23 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+        android:theme="@style/AppTheme.NoActionBar"
         android:usesCleartextTraffic="true"
-        android:theme="@style/Theme.NewAthletic.NoActionBar"
         tools:targetApi="31">
+        <activity
+            android:name=".ui.view.usuario.LoginActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.view.usuario.PreferenciasActivity"
+            android:exported="false" />
         <activity
             android:name=".ui.view.MainActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.view.usuario.LoginActivity"
+            android:name=".ui.view.SplashActivity"
             android:exported="true"
             android:label="@string/title_activity_main"
-            android:theme="@style/Theme.NewAthletic.NoActionBar">
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

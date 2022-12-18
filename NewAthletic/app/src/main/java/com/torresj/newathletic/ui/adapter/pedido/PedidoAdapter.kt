@@ -1,24 +1,18 @@
 package com.torresj.newathletic.ui.adapter.pedido
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.torresj.newathletic.R
 import com.torresj.newathletic.data.model.DtoCoPedido
 import com.torresj.newathletic.databinding.ItemPedidosBinding
 
-class PedidoAdapter() :RecyclerView.Adapter<PedidoAdapter.ViewHolder>(){
-
-    var pedidos: MutableList<DtoCoPedido>  = ArrayList()
-    lateinit var context: Context
+class PedidoAdapter(
+    private var pedidosList: List<DtoCoPedido>,
+    private val onClickListener: (DtoCoPedido) -> Unit,
+    private val onClickDelete:(Int) -> Unit
+) :RecyclerView.Adapter<PedidoAdapter.ViewHolder>(){
 
     inner class ViewHolder(val binding: ItemPedidosBinding) : RecyclerView.ViewHolder(binding.root)
-
-    fun PedidoAdapter(pedidos : MutableList<DtoCoPedido>, context: Context){
-        this.pedidos = pedidos
-        this.context = context
-    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val binding = ItemPedidosBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -27,7 +21,7 @@ class PedidoAdapter() :RecyclerView.Adapter<PedidoAdapter.ViewHolder>(){
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         with(holder){
-            with(pedidos[position]){
+            with(pedidosList[position]){
                 binding.txtCliente.text = this.clienteNombre
                 binding.txtEstadoPedido.text = this.estadoNombre
                 binding.txtdireccionPedido.text = this.estadoNombre
@@ -38,6 +32,11 @@ class PedidoAdapter() :RecyclerView.Adapter<PedidoAdapter.ViewHolder>(){
         }
     }
 
-    override fun getItemCount(): Int =pedidos.size
+    override fun getItemCount(): Int =pedidosList.size
+
+    fun updatePedidos(pedidosList: MutableList<DtoCoPedido>){
+        this.pedidosList = pedidosList
+        notifyDataSetChanged()
+    }
 
 }

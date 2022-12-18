@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -8,7 +9,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="85dp"
+        android:layout_marginTop="10dp"
         android:background="#fff"
         android:orientation="vertical">
 
@@ -18,14 +19,15 @@
             android:clipToPadding="false"
             android:orientation="vertical"
             android:paddingBottom="30.0dip">
-            <!--
+
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="horizontal">
                             <EditText
-                                android:id="@+id/TxxBusqueda"
+                                android:id="@+id/etFilter"
                                 android:layout_width="fill_parent"
+                                android:imeOptions="actionDone"
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="16.699982dip"
                                 android:layout_marginTop="10.0dip"
@@ -44,12 +46,12 @@
                                 style="?android:buttonBarButtonStyle"
                                 android:paddingBottom="5dp"
                                 android:layout_marginTop="3dp"
-                                android:tint="@color/semi_gray"
                                 android:src="@drawable/ic_baseline_delete_forever_24"
                                 android:layout_width="wrap_content"
-                                android:layout_height="wrap_content" />
+                                android:layout_height="wrap_content"
+                                app:tint="@color/semi_gray" />
                         </LinearLayout>
-                        -->
+
         </LinearLayout>
 
         <LinearLayout
@@ -58,7 +60,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_margin="8dp"
-            android:paddingTop="100dp">
+            android:paddingTop="60dp">
 
             <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
                 android:layout_width="wrap_content"
@@ -75,4 +77,26 @@
             </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
         </LinearLayout>
     </RelativeLayout>
+
+
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/framelayout"
+        android:layout_below="@+id/drawer_toolbar"
+        android:layout_above="@+id/drawer_foot" >
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|right"
+            android:layout_margin="25dp"
+            android:clickable="true"
+            android:elevation="5dp"
+            app:tint="@color/white"
+            app:backgroundTint="@color/colorPrimary"
+            app:srcCompat="@android:drawable/ic_input_add" />
+    </FrameLayout>
 </FrameLayout>

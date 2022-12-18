@@ -6,7 +6,7 @@ import java.util.*
 data class DtoCoPedido(
     val numeroDocumento: String,
     val estadoNombre: String? = null,
-    val clienteNombre: String? = null,
+    val clienteNombre: String,
     val montoTotal: BigDecimal? = null,
     val fechaDocumento: Date? = null
 ){

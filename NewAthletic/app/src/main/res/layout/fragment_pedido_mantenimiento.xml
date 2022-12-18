@@ -1,14 +1,593 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/clCoordinator"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#fff"
+    android:orientation="vertical"
     tools:context=".ui.view.pedidos.PedidoMantenimientoFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_marginTop="85dp"
+        android:background="#fff"
+        android:orientation="vertical">
 
-</FrameLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#ffffff"
+                android:focusableInTouchMode="true">
+
+                <RelativeLayout
+                    android:id="@+id/shopping_cart_header"
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp"
+                    android:layout_alignParentBottom="true"
+                    android:background="@drawable/degrado_action">
+
+                    <TextView
+                        android:id="@+id/TxtTipodeCambio"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignStart="@+id/BtnContinuar"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginTop="10dp"
+                        android:fontFamily="@font/proxima_nova_bold"
+                        android:text="Tipo de Cambio "
+                        android:textColor="#60f9f9f9"
+                        android:textSize="14.0sp" />
+
+                    <TextView
+                        android:id="@+id/TxtValorTipoCambio"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignEnd="@+id/BtnContinuar"
+                        android:layout_alignBottom="@+id/TxtTipodeCambio"
+                        android:fontFamily="@font/proxima_nova_bold"
+                        android:text="0.0"
+                        android:textColor="#ffffffff"
+                        android:textSize="16.0sp" />
+
+                    <TextView
+                        android:id="@+id/tu_pedido_text_view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/TxtTipodeCambio"
+                        android:layout_alignStart="@+id/BtnContinuar"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginTop="35dp"
+                        android:fontFamily="@font/proxima_nova_bold"
+                        android:text="Orden Total "
+                        android:textColor="#60f9f9f9"
+                        android:textSize="14.0sp" />
+
+                    <TextView
+                        android:id="@+id/total_numeric_text_view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/TxtValorTipoCambio"
+                        android:layout_alignEnd="@+id/BtnContinuar"
+                        android:layout_marginTop="6dp"
+                        android:fontFamily="@font/proxima_nova_bold"
+                        android:text="0.0"
+                        android:textColor="#ffffffff"
+                        android:textSize="16.0sp" />
+
+                    <Button
+                        android:id="@+id/BtnContinuar"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginLeft="21.0dip"
+                        android:layout_marginTop="10.0dip"
+                        android:layout_marginRight="21.0dip"
+                        android:layout_marginBottom="15.0dip"
+                        android:background="@drawable/confirm_shopping_cart_button"
+                        android:enabled="true"
+                        android:fontFamily="@font/proxima_nova_bold"
+                        android:paddingRight="10.0dip"
+                        android:text="CONTINUAR"
+                        android:textAllCaps="false"
+                        android:textColor="@drawable/confirm_shopping_cart_button_text_color"
+                        android:textSize="12.0sp" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/coupon_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_above="@+id/shopping_cart_header"
+                    android:layout_alignParentStart="true"
+                    android:background="@null" />
+
+                <LinearLayout
+                    android:id="@+id/shopping_cart_list_view_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_above="@+id/coupon_container"
+                    android:layout_alignParentTop="true"
+                    android:background="@null"
+                    android:orientation="vertical"
+                    android:paddingTop="20dp">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="100dp"
+                        android:layout_marginRight="100dp">
+
+                        <!-- android:background="@drawable/news_bottom_nav_bggriss"
+                         app:backgroundTint="@drawable/news_bottom_nav_bggriss"-->
+                        <Button
+                            android:id="@+id/imageView2"
+                            android:layout_width="36dp"
+                            android:layout_height="33dp"
+                            android:layout_centerInParent="true"
+
+
+                            android:fontFamily="@font/proxima_nova_bold"
+                            android:padding="3dp"
+                            android:text="1"
+                            android:textColor="@color/white"
+                            android:textSize="20sp"
+                            android:textStyle="bold|italic"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0"
+                            app:layout_constraintStart_toStartOf="parent" />
+
+                        <View
+                            android:id="@+id/view"
+                            android:layout_width="wrap_content"
+                            android:layout_height="1dp"
+                            android:background="@color/white_divider"
+                            app:layout_constraintBottom_toBottomOf="@+id/imageView2"
+                            app:layout_constraintStart_toEndOf="@+id/imageView2"
+                            app:layout_constraintTop_toTopOf="@+id/imageView2" />
+
+                        <!--app:backgroundTint="@drawable/news_bottom_nav_bg"
+                        android:background="@drawable/news_bottom_nav_bg"
+                        -->
+                        <Button
+                            android:id="@+id/imageView3"
+                            android:layout_width="36dp"
+                            android:layout_height="33dp"
+
+                            android:fontFamily="@font/proxima_nova_bold"
+                            android:padding="3dp"
+                            android:text="2"
+                            android:textColor="@color/white"
+                            android:textSize="20dp"
+                            android:textStyle="bold|italic"
+
+                            app:layout_constraintBottom_toBottomOf="@+id/imageView2"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="@+id/imageView2" />
+
+                        <!--
+                        android:background="@drawable/news_bottom_nav_bggriss"
+                         app:backgroundTint="@drawable/news_bottom_nav_bggriss"
+                        -->
+
+                        <Button
+                            android:id="@+id/imageView4"
+                            android:layout_width="36dp"
+                            android:layout_height="33dp"
+
+                            android:fontFamily="@font/proxima_nova_bold"
+                            android:padding="3dp"
+                            android:text="3"
+                            android:textColor="@color/white"
+                            android:textSize="20dp"
+                            android:textStyle="bold|italic"
+
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                    <!-- android:layout_below="@id/cardAddProduct"-->
+                    <ScrollView
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_above="@+id/CardAddProduct"
+                        android:overScrollMode="never"
+                        android:scrollbars="none">
+
+                        <LinearLayout
+                            android:layout_width="fill_parent"
+                            android:layout_height="fill_parent"
+                            android:clipToPadding="false"
+                            android:orientation="vertical"
+                            android:paddingBottom="30.0dip">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="16.699982dip"
+                                android:layout_marginTop="23.299988dip"
+                                android:fontFamily="@font/poppins_default_bold"
+                                android:includeFontPadding="false"
+                                android:text="Cliente"
+                                android:textColor="@color/black"
+                                android:textSize="14.0sp" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <EditText
+                                    android:id="@+id/Txtclienteelec"
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="16.699982dip"
+                                    android:layout_marginTop="10.0dip"
+                                    android:layout_marginRight="16.699982dip"
+                                    android:background="@drawable/rectangle_silver_border"
+                                    android:drawableTint="@color/bluecito"
+                                    android:enabled="false"
+                                    android:focusableInTouchMode="false"
+                                    android:fontFamily="@font/default_font_regular"
+                                    android:hint="Buscar Cliente"
+                                    android:includeFontPadding="false"
+                                    android:inputType="textCapWords"
+                                    android:padding="11.7dp"
+                                    android:textSize="15.0sp" />
+
+                                <ImageButton
+                                    android:id="@+id/ic_buscar"
+                                    style="?android:buttonBarButtonStyle"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="-75dp"
+                                    android:layout_marginTop="3dp"
+                                    android:paddingBottom="5dp"
+                                    android:src="@drawable/ic_search"
+                                    app:tint="@color/semi_gray" />
+                            </LinearLayout>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="16.699982dip"
+                                android:layout_marginTop="1dp"
+                                android:fontFamily="@font/poppins_default_bold"
+                                android:includeFontPadding="false"
+                                android:text="Dirección"
+                                android:textColor="@color/black"
+                                android:textSize="14.0sp" />
+
+                            <EditText
+                                android:id="@+id/TxtDireccion"
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="16.699982dip"
+                                android:layout_marginTop="10.0dip"
+                                android:layout_marginRight="16.699982dip"
+                                android:background="@drawable/rectangle_silver_border"
+                                android:enabled="false"
+                                android:fontFamily="@font/default_font_regular"
+                                android:hint="Ingresar Dirección"
+                                android:includeFontPadding="false"
+                                android:inputType="textCapWords"
+                                android:padding="11.7dp"
+                                android:textColor="@color/semi_gray"
+                                android:textColorHint="@color/semi_gray"
+                                android:textSize="15.0sp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="16.699982dip"
+                                android:layout_marginTop="6dp"
+                                android:fontFamily="@font/poppins_default_bold"
+                                android:includeFontPadding="false"
+                                android:text="Dirección Despacho"
+                                android:textColor="@color/black"
+                                android:textSize="14.0sp" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginLeft="16.699982dip"
+                                android:layout_marginTop="10.0dip"
+                                android:layout_marginRight="16.699982dip"
+                                android:drawableLeft="@drawable/ic_list"
+                                android:drawableTint="@color/blue"
+                                android:fontFamily="@font/proxima_nova_bold"
+                                android:orientation="horizontal"
+                                android:text="Lista"
+                                android:textColor="@color/blue">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="40dp"
+                                    android:background="@drawable/rectangle_silver_border"
+                                    android:padding="2dp">
+
+                                    <com.jaredrummler.materialspinner.MaterialSpinner
+                                        android:id="@+id/CboDireccionCliente"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="40dp"
+                                        android:fontFamily="@font/default_font_regular"
+                                        android:hint="Seleccione"
+                                        android:textColor="@color/semi_gray"
+                                        android:textColorHint="@color/semi_gray"
+                                        android:textSize="14dp"
+                                        app:ms_hint_color="@color/semi_gray" />
+                                </LinearLayout>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="16.699982dip"
+                                android:layout_marginTop="7dp"
+                                android:layout_marginRight="16.699982dip"
+                                android:orientation="horizontal">
+
+                                <LinearLayout
+                                    android:layout_width="0.0dip"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginEnd="8.349976dip"
+                                    android:layout_weight="1.0"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:fontFamily="@font/poppins_default_bold"
+                                        android:includeFontPadding="false"
+                                        android:text="D.O.I"
+                                        android:textColor="@color/black"
+                                        android:textSize="14.0sp" />
+
+                                    <EditText
+
+                                        android:id="@+id/TxtDocumento"
+                                        android:layout_width="fill_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="10.0dip"
+                                        android:background="@drawable/rectangle_silver_border"
+                                        android:enabled="false"
+                                        android:fontFamily="@font/default_font_regular"
+                                        android:hint="Ingresar Documento"
+                                        android:includeFontPadding="false"
+                                        android:inputType="textCapWords"
+                                        android:padding="11.7dp"
+                                        android:textColor="@color/semi_gray"
+                                        android:textColorHint="@color/semi_gray"
+                                        android:textSize="15.0sp" />
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="0.0dip"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1.0"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:fontFamily="@font/poppins_default_bold"
+                                        android:includeFontPadding="false"
+                                        android:text="Forma de Pago"
+                                        android:textColor="@color/black"
+                                        android:textSize="14.0sp" />
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="10.0dip"
+                                        android:orientation="horizontal">
+
+                                        <LinearLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center"
+                                            android:layout_marginLeft="1dp"
+                                            android:layout_marginRight="1dp"
+                                            android:drawableLeft="@drawable/ic_list"
+                                            android:drawableTint="@color/blue"
+                                            android:fontFamily="@font/proxima_nova_bold"
+                                            android:orientation="horizontal"
+                                            android:text="Lista"
+                                            android:textColor="@color/blue">
+
+                                            <LinearLayout
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:background="@drawable/rectangle_silver_border"
+                                                android:padding="2dp">
+
+                                                <com.jaredrummler.materialspinner.MaterialSpinner
+                                                    android:id="@+id/CboFormaPago"
+                                                    android:layout_width="match_parent"
+                                                    android:layout_height="40dp"
+                                                    android:fontFamily="@font/default_font_regular"
+                                                    android:hint="Seleccione"
+                                                    android:textColor="@color/semi_gray"
+                                                    android:textColorHint="@color/semi_gray"
+                                                    android:textSize="14dp"
+                                                    app:ms_hint_color="@color/semi_gray" />
+                                            </LinearLayout>
+                                        </LinearLayout>
+                                    </LinearLayout>
+
+                                </LinearLayout>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="16.699982dip"
+                                android:layout_marginTop="7dp"
+                                android:layout_marginRight="16.699982dip"
+                                android:orientation="horizontal">
+
+                                <LinearLayout
+                                    android:layout_width="0.0dip"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginEnd="8.349976dip"
+                                    android:layout_weight="1.0"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:fontFamily="@font/poppins_default_bold"
+                                        android:includeFontPadding="false"
+                                        android:text="Doc. de Venta"
+                                        android:textColor="@color/black"
+                                        android:textSize="14.0sp" />
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="10.0dip"
+                                        android:orientation="horizontal">
+
+                                        <LinearLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center"
+                                            android:layout_marginLeft="1dp"
+                                            android:layout_marginRight="1dp"
+                                            android:drawableLeft="@drawable/ic_list"
+                                            android:drawableTint="@color/blue"
+                                            android:fontFamily="@font/proxima_nova_bold"
+                                            android:orientation="horizontal"
+                                            android:text="Lista"
+                                            android:textColor="@color/blue">
+
+                                            <LinearLayout
+                                                android:layout_width="match_parent"
+                                                android:layout_height="40dp"
+                                                android:background="@drawable/rectangle_silver_border"
+                                                android:padding="2dp">
+
+                                                <com.jaredrummler.materialspinner.MaterialSpinner
+                                                    android:id="@+id/CboTipodoc"
+                                                    android:layout_width="match_parent"
+                                                    android:layout_height="40dp"
+                                                    android:fontFamily="@font/default_font_regular"
+                                                    android:hint="Seleccione"
+                                                    android:maxLength="50"
+                                                    android:textColor="@color/semi_gray"
+                                                    android:textColorHint="@color/semi_gray"
+                                                    android:textSize="14dp"
+                                                    app:ms_hint_color="@color/semi_gray" />
+                                            </LinearLayout>
+                                        </LinearLayout>
+                                    </LinearLayout>
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="0.0dip"
+                                    android:layout_height="wrap_content"
+
+                                    android:layout_weight="1.0"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:fontFamily="@font/poppins_default_bold"
+                                        android:includeFontPadding="false"
+                                        android:text="Moneda"
+                                        android:textColor="@color/black"
+                                        android:textSize="14.0sp" />
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+
+                                        android:layout_marginTop="10.0dip"
+                                        android:orientation="horizontal">
+
+                                        <LinearLayout
+
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center"
+                                            android:layout_marginLeft="1dp"
+                                            android:layout_marginRight="1dp"
+                                            android:drawableLeft="@drawable/ic_list"
+                                            android:drawableTint="@color/blue"
+                                            android:fontFamily="@font/proxima_nova_bold"
+                                            android:orientation="horizontal"
+                                            android:text="Lista"
+                                            android:textColor="@color/blue">
+
+                                            <LinearLayout
+                                                android:layout_width="match_parent"
+                                                android:layout_height="40dp"
+                                                android:background="@drawable/rectangle_silver_border"
+                                                android:padding="2dp">
+
+                                                <com.jaredrummler.materialspinner.MaterialSpinner
+                                                    android:id="@+id/CboMoneda"
+                                                    android:layout_width="fill_parent"
+                                                    android:layout_height="40dp"
+                                                    android:fontFamily="@font/default_font_regular"
+                                                    android:hint="Seleccione"
+                                                    android:textColor="@color/semi_gray"
+                                                    android:textColorHint="@color/semi_gray"
+                                                    android:textSize="14dp"
+                                                    app:ms_hint_color="@color/semi_gray" />
+                                            </LinearLayout>
+                                        </LinearLayout>
+                                    </LinearLayout>
+                                </LinearLayout>
+                            </LinearLayout>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="16.699982dip"
+                                android:layout_marginTop="10.299988dip"
+                                android:fontFamily="@font/poppins_default_bold"
+                                android:includeFontPadding="false"
+                                android:text="Código SCOP"
+                                android:textColor="@color/black"
+                                android:textSize="14.0sp" />
+
+                            <EditText
+                                android:id="@+id/TxtSCOP"
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="16.699982dip"
+                                android:layout_marginTop="10.0dip"
+                                android:layout_marginRight="16.699982dip"
+                                android:background="@drawable/rectangle_silver_border"
+
+                                android:fontFamily="@font/default_font_regular"
+                                android:hint="Ingresar SCOP"
+                                android:includeFontPadding="false"
+                                android:inputType="textCapWords"
+                                android:padding="11.7dp"
+                                android:textColor="@color/semi_gray"
+                                android:textColorHint="@color/semi_gray"
+                                android:textSize="15.0sp" />
+                        </LinearLayout>
+                    </ScrollView>
+                </LinearLayout>
+            </RelativeLayout>
+        </LinearLayout>
+    </RelativeLayout>
+</RelativeLayout>

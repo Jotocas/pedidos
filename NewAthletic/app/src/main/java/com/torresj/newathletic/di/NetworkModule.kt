@@ -1,6 +1,7 @@
 package com.torresj.newathletic.di
 
 import com.torresj.newathletic.data.network.pedido.PedidoApiClient
+import com.torresj.newathletic.data.network.preferencias.PreferenciasApiClient
 import com.torresj.newathletic.data.network.usuario.UsuarioApiClient
 import dagger.Module
 import dagger.Provides
@@ -60,7 +61,11 @@ object NetworkModule {
         return retrofit.create(UsuarioApiClient::class.java)
     }
 
-
+    @Singleton
+    @Provides
+    fun providePreferenciasApiClient(retrofit: Retrofit): PreferenciasApiClient {
+        return retrofit.create(PreferenciasApiClient::class.java)
+    }
 
 
 }

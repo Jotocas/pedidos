@@ -8,4 +8,5 @@ object ApiEndPoint {
 
     val ENDPOINT_LOGIN = API_SEGURIDAD + "/autorizacion/seguridad/login/ingresar"
     val ENDPOINT_LISTAR_PEDIDOS=API_COMERCIAL + "/spring/comercial/codocumento/listarPedidosPaginacion"
+    val ENDPOINT_OBTENER_PREFERENCIAS = API_COMUN + "/spring/sistema/sypreferencescomun/obtenerPreferencias"
 }

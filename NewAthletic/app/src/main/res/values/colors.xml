@@ -10,9 +10,20 @@
 
     <color name="blue">#ff1e376d</color>
     <color name="colorLightGray">#a6abae</color>
-    <color name="colorPrimary">#FF003B</color>
+    <color name="colorPrimary">#BC1408</color>
     <color name="colorBackroundWhite">#f0f2ea</color>
     <color name="textColor">#ECE5EC</color>
     <color name="tansparentColor">#00FFFFFF</color>
-
+    <color name="ghost_white">#F9F9FB</color>
+    <color name="bluecito">#031336</color>
+    <color name="semi_gray">#979797</color>
+    <color name="orange">#FFA500</color>
+    <color name="colorGray">#495C67</color>
+    <color name="transparent">#00000000</color>
+    <color name="blue.dark">#ff20386d</color>
+    <color name="white_divider">#e6e6e6</color>
+    <color name="toolbarcolor">#562583</color>
+    <color name="blue_grey_light">#A5B4C8</color>
+    <color name="contentBadgeTitle">#a9a9a9</color>
+    <color name="white.smoke">#fff5f5f5</color>
 </resources>

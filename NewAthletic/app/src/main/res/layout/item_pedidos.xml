@@ -31,7 +31,7 @@
                 <View
                     android:id="@+id/ViewIzquierdo"
                     android:layout_width="5dp"
-                    android:layout_height="100dp"
+                    android:layout_height="108dp"
                     android:background="@color/black"></View>
 
                 <RelativeLayout
@@ -45,38 +45,10 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="20dp"
                         android:text="Jose Torres Castillo"
-                        android:textColor="@color/colorPrimary"
+                        android:textColor="@color/colorGray"
                         android:textSize="14dp"
                         android:textStyle="bold" />
 
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentRight="true"
-                        android:layout_marginRight="20dp"
-                        android:gravity="center_vertical">
-
-                        <TextView
-                            android:id="@+id/txtcolorAten"
-                            android:layout_width="7dp"
-                            android:layout_height="7dp"
-                            android:layout_alignParentRight="true"
-                            android:layout_marginTop="5dp"
-                            android:background="@drawable/gree_circle">
-
-                        </TextView>
-
-                        <TextView
-                            android:id="@+id/txtEstadoPedido"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="5dp"
-                            android:layout_marginTop="5dp"
-                            android:text="CONFIRMED"
-                            android:textColor="@color/colorPrimary"
-                            android:textSize="12dp"
-                            android:textStyle="bold" />
-                    </LinearLayout>
 
                     <LinearLayout
                         android:id="@+id/linear"
@@ -116,15 +88,45 @@
                             android:textSize="12dp"
                             android:textStyle="bold" />
 
-                        <TextView
-                            android:id="@+id/txtMontoTotal"
-                            android:layout_width="wrap_content"
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="20dp"
-                            android:text="Monto"
-                            android:textColor="@color/colorLightGray"
-                            android:textSize="12dp"
-                            android:textStyle="bold" />
+                            android:layout_alignParentRight="true"
+                            android:paddingBottom="5dp"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/txtMontoTotal"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="20dp"
+                                android:width="220dp"
+                                android:text="Monto"
+                                android:textColor="@color/colorLightGray"
+                                android:textSize="12dp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/txtcolorAten"
+                                android:layout_width="7dp"
+                                android:layout_height="7dp"
+                                android:layout_alignParentRight="true"
+                                android:layout_marginTop="7dp"
+                                android:background="@drawable/gree_circle">
+
+                            </TextView>
+
+                            <TextView
+                                android:id="@+id/txtEstadoPedido"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="5dp"
+                                android:text="En Preparacion"
+                                android:textColor="@color/orange"
+                                android:textSize="12dp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
 
                     </LinearLayout>
 

@@ -72,6 +72,11 @@ dependencies {
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.0'
     //RECYCLERVIEW
     implementation "androidx.recyclerview:recyclerview:1.2.1"
+    //pulsador del progress
+    implementation 'pl.bclogic:pulsator4droid:1.0.3'
+    //Spinner
+    implementation 'com.jaredrummler:material-spinner:1.3.1'
+
 
     implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
 
