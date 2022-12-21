@@ -18,29 +18,23 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 object NetworkModule {
 
-
-
     @Singleton
     @Provides
-    fun provideRetrofit(): Retrofit {
+    fun providesRetrofit(): Retrofit.Builder {
 
         val logging = HttpLoggingInterceptor()
         logging.setLevel(HttpLoggingInterceptor.Level.BODY)
 
         val okHttpClient = OkHttpClient.Builder()
             .addInterceptor(logging)
-            .connectTimeout(1, TimeUnit.MINUTES)
-            .readTimeout(30, TimeUnit.SECONDS)
-            .writeTimeout(30, TimeUnit.SECONDS)
+            .connectTimeout(2, TimeUnit.MINUTES)
+            .readTimeout(2, TimeUnit.MINUTES)
+            .writeTimeout(2, TimeUnit.MINUTES)
             .build()
 
-
-        return Retrofit.Builder()
-            .baseUrl("http://10.0.2.2:8080")
+        return Retrofit.Builder().baseUrl("http://10.0.2.2:8080")
             .client(okHttpClient)
             .addConverterFactory(GsonConverterFactory.create())
-            .build()
-
     }
 
     @Singleton
@@ -51,21 +45,19 @@ object NetworkModule {
 
     @Singleton
     @Provides
-    fun providePedidoApiClient(retrofit: Retrofit): PedidoApiClient {
-        return retrofit.create(PedidoApiClient::class.java)
+    fun providesUserAPI(retrofitBuilder: Retrofit.Builder): UsuarioApiClient {
+        return retrofitBuilder.build().create(UsuarioApiClient::class.java)
     }
 
     @Singleton
     @Provides
-    fun provideUsuarioApiClient(retrofit: Retrofit): UsuarioApiClient {
-        return retrofit.create(UsuarioApiClient::class.java)
+    fun providePreferenciasApiClient(retrofitBuilder: Retrofit.Builder, okHttpClient: OkHttpClient): PreferenciasApiClient {
+        return retrofitBuilder.client(okHttpClient).build().create(PreferenciasApiClient::class.java)
     }
 
     @Singleton
     @Provides
-    fun providePreferenciasApiClient(retrofit: Retrofit): PreferenciasApiClient {
-        return retrofit.create(PreferenciasApiClient::class.java)
+    fun providePedidoApiClient(retrofitBuilder: Retrofit.Builder, okHttpClient: OkHttpClient): PedidoApiClient {
+        return retrofitBuilder.client(okHttpClient).build().create(PedidoApiClient::class.java)
     }
-
-
 }

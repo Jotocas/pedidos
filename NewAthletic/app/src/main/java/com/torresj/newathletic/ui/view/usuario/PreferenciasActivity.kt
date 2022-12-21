@@ -3,6 +3,8 @@ package com.torresj.newathletic.ui.view.usuario
 import android.R
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
+import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -82,6 +84,32 @@ class PreferenciasActivity : AppCompatActivity() {
         adapterspinner.setDropDownViewResource(R.layout.simple_dropdown_item_1line)
         binding.spnEstablecimiento.adapter=adapterspinner
 
+       /* val selection = DtoTablaCombo(preferencia.establecimiento!!,"")
+        val spinnerPosition: Int = adapterspinner.getPosition(selection)
+        binding.spnEstablecimiento.setSelection(spinnerPosition)
+                */
+
+        binding.spnEstablecimiento.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+
+            override fun onNothingSelected(p0: AdapterView<*>?) {
+                // You can define your actions as you want
+            }
+
+            override fun onItemSelected(p0: AdapterView<*>?, p1: View?, position: Int, p3: Long) {
+
+                val selectedObject = binding.spnEstablecimiento.selectedItem as DtoTablaCombo
+
+              /*  Toast.makeText(
+                    this@MainActivity,
+                    "ID: ${selectedObject.id} Name: ${selectedObject.name}",
+                    Toast.LENGTH_SHORT
+                ).show()
+
+               */
+
+            }
+        }
+
 
     }
 
@@ -102,6 +130,9 @@ class PreferenciasActivity : AppCompatActivity() {
         adapterspinner.setDropDownViewResource(R.layout.simple_dropdown_item_1line)
         binding.spnfacturas.adapter=adapterspinner
 
+        val selection = DtoTablaCombo(preferencia.seriefac!!,preferencia.seriefac!!)
+        val spinnerPosition: Int = adapterspinner.getPosition(selection)
+        binding.spnfacturas.setSelection(spinnerPosition)
 
     }
 

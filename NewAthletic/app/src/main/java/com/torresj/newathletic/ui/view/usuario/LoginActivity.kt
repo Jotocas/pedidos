@@ -73,6 +73,7 @@ class LoginActivity : AppCompatActivity() {
             when (it) {
                 is NetworkResult.Success -> {
                     tokenManager.saveToken(it.data?.token!!)
+                    tokenManager.saveUsuario(it.data?.usuario!!)
                     startActivity(Intent(this@LoginActivity, PreferenciasActivity::class.java))
                 }
                 is NetworkResult.Error -> {
