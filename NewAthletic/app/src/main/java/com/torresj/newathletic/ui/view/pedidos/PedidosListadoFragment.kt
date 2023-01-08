@@ -15,7 +15,6 @@ import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.google.android.material.snackbar.Snackbar
 import com.torresj.newathletic.R
 import com.torresj.newathletic.data.model.DtoCoPedido
 import com.torresj.newathletic.data.model.FiltroCoPedido
@@ -24,9 +23,8 @@ import com.torresj.newathletic.ui.adapter.pedido.PedidoAdapter
 import com.torresj.newathletic.ui.viewmodel.pedidos.PedidoListadoViewModel
 import com.torresj.newathletic.utils.ProgressBarGenerico
 import com.torresj.newathletic.utils.SwipeHelper
+import com.torresj.newathletic.utils.SwipeHelper.UnderlayButtonClickListener
 import dagger.hilt.android.AndroidEntryPoint
-import org.json.JSONArray
-import org.json.JSONObject
 
 @AndroidEntryPoint
 class PedidosListadoFragment : Fragment() {
@@ -52,10 +50,7 @@ class PedidosListadoFragment : Fragment() {
             pedidosMutableList = it.toMutableList();
             this.initRecyclerView();
         })
-
-
     }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -173,22 +168,22 @@ class PedidosListadoFragment : Fragment() {
         // Toast.makeText(this, pedido.numeroDocumento, Toast.LENGTH_SHORT).show()
     }
 
-   /* private fun readFromAsset(): MutableList<Model> {
-        val modeList = mutableListOf<Model>()
-        val bufferReader = application.assets.open("android_version.json").bufferedReader()
-        val json_string = bufferReader.use {
-            it.readText()
-        }
-        val jsonArray = JSONArray(json_string);
+    /* private fun readFromAsset(): MutableList<Model> {
+         val modeList = mutableListOf<Model>()
+         val bufferReader = application.assets.open("android_version.json").bufferedReader()
+         val json_string = bufferReader.use {
+             it.readText()
+         }
+         val jsonArray = JSONArray(json_string);
 
-        for (i in 0..jsonArray.length() - 1) {
-            val jsonObject: JSONObject = jsonArray.getJSONObject(i)
+         for (i in 0..jsonArray.length() - 1) {
+             val jsonObject: JSONObject = jsonArray.getJSONObject(i)
 
-            val model = Model(jsonObject.getString("name"), jsonObject.getString("version"))
-            modeList.add(model)
-        }
+             val model = Model(jsonObject.getString("name"), jsonObject.getString("version"))
+             modeList.add(model)
+         }
 
-        return modeList
-    }*/
+         return modeList
+     }*/
 
 }

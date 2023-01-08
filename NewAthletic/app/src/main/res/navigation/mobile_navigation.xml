@@ -30,23 +30,11 @@
     <fragment
         android:id="@+id/pedidoMantenimientoFragment"
         android:name="com.torresj.newathletic.ui.view.pedidos.PedidoMantenimientoFragment"
-        android:label="fragment_pedido_mantenimiento"
+        android:label="Pedidos"
         tools:layout="@layout/fragment_pedido_mantenimiento" >
         <action
             android:id="@+id/pedidoMantenimiento_to_pedidoListado"
             app:destination="@id/nav_pedidos" />
-        <action
-            android:id="@+id/pedidoMantenimiento_to_clientesListado"
-            app:destination="@id/clientesFragment" />
     </fragment>
 
-    <fragment
-        android:id="@+id/clientesFragment"
-        android:name="com.torresj.newathletic.ui.view.clientes.ClientesFragment"
-        android:label="fragment_clientes"
-        tools:layout="@layout/fragment_clientes" >
-        <action
-            android:id="@+id/clientesListado_to_pedidoMantenimiento"
-            app:destination="@id/pedidoMantenimientoFragment" />
-    </fragment>
 </navigation>

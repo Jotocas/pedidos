@@ -19,10 +19,10 @@ data class DtoComunSyPreferences(
     val ultimafechamodif: Date? = null
     val descripcionlocal: String? = null
     val companiasocio: String? = null
-    val establecimiento: String? = null
+    var establecimiento: String? = null
     val numeroserie: String? = null
-    val seriefac: String? = null
-    val seriebol: String? = null
+    var seriefac: String? = null
+    var seriebol: String? = null
     val serieguia: String? = null
     val serierecaudacion: String? = null
     val dwc_establecimiento: List<DtoComunSyPreferences>? = null

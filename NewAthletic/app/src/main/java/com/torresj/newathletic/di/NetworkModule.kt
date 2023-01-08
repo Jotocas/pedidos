@@ -1,5 +1,6 @@
 package com.torresj.newathletic.di
 
+import com.torresj.newathletic.data.network.clientes.ClientesApiClient
 import com.torresj.newathletic.data.network.pedido.PedidoApiClient
 import com.torresj.newathletic.data.network.preferencias.PreferenciasApiClient
 import com.torresj.newathletic.data.network.usuario.UsuarioApiClient
@@ -27,9 +28,9 @@ object NetworkModule {
 
         val okHttpClient = OkHttpClient.Builder()
             .addInterceptor(logging)
-            .connectTimeout(2, TimeUnit.MINUTES)
-            .readTimeout(2, TimeUnit.MINUTES)
-            .writeTimeout(2, TimeUnit.MINUTES)
+            .connectTimeout(10, TimeUnit.MINUTES)
+            .readTimeout(10, TimeUnit.MINUTES)
+            .writeTimeout(10, TimeUnit.MINUTES)
             .build()
 
         return Retrofit.Builder().baseUrl("http://10.0.2.2:8080")
@@ -59,5 +60,11 @@ object NetworkModule {
     @Provides
     fun providePedidoApiClient(retrofitBuilder: Retrofit.Builder, okHttpClient: OkHttpClient): PedidoApiClient {
         return retrofitBuilder.client(okHttpClient).build().create(PedidoApiClient::class.java)
+    }
+
+    @Singleton
+    @Provides
+    fun provideClienteApiClient(retrofitBuilder: Retrofit.Builder, okHttpClient: OkHttpClient): ClientesApiClient {
+        return retrofitBuilder.client(okHttpClient).build().create(ClientesApiClient::class.java)
     }
 }

@@ -11,5 +11,10 @@ interface PreferenciasApiClient {
     @PUT()
     suspend fun obtenerPreferencias(@Url authUrl: String): Response<DtoComunSyPreferences>
 
+    @PUT()
+    suspend fun actualizarPreferencias(@Body bean: DtoComunSyPreferences,@Url authUrl: String): Response<DtoComunSyPreferences>
+
+    @PUT()
+    suspend fun guardarPreferencias(@Body bean: DtoComunSyPreferences,@Url authUrl: String): Response<DtoComunSyPreferences>
 
 }

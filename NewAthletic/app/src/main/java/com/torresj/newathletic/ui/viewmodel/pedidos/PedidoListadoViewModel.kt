@@ -16,18 +16,14 @@ class PedidoListadoViewModel @Inject constructor(
     private val getObtenerPedidosUseCase: obtenerPedidosUseCase
 ) : ViewModel() {
 
-   //
-   val listaPedidos = MutableLiveData<List<DtoCoPedido>>()
+    val listaPedidos = MutableLiveData<List<DtoCoPedido>>()
 
     fun listarPedidos(filtro: FiltroCoPedido) {
         viewModelScope.launch {
-            // isLoading.postValue(true)
             val result = getObtenerPedidosUseCase(filtro)
-
-            // if (!result.isNullOrEmpty()) {
-            listaPedidos.postValue(result)
-            // isLoading.postValue(false)
-            //  }
+            if (!result.isNullOrEmpty()) {
+                listaPedidos.postValue(result)
+            }
         }
     }
 
